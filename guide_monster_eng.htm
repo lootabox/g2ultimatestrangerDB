@@ -1,0 +1,100 @@
+<html>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK 
+href="style.css" type=text/css rel=stylesheet>
+<script>
+var DATA = new Array();
+</script>
+<script src="hamster_eng.js"></script>
+<script src="guide_monster_eng.js"></script>
+
+<center>
+<img class=guideheadline src="img/t_monster_eng.jpg" />
+<table cellpadding=2 cellspacing=2 border=0 width=700>
+
+
+<script>
+	OUT('<TABLE cellSpacing=0 cellPadding=0 align=center border=0 class="problem_index">');
+	OUT('<tr><td><ul>');
+	var zaehler = 1;
+
+	for (i=0; i < DATA.length; ++i)
+	{
+		var it = DATA[i];
+
+		if (it.section)
+		{
+			OUT('<li><a href="#section_' + zaehler + '">' + it.section + '</a></li>');
+			++zaehler;
+		}
+	}
+	OUT('</ul></td></tr>');
+	OUT('</TABLE>');
+
+	OUT('<table cellpadding=2 cellspacing=2 border=0 width=700>');
+	zaehler = 1;
+	for (i=0; i < DATA.length; ++i)
+	{
+		var it = DATA[i];
+		if (it.section)
+		{
+			OUT('<tr><td colspan=5 class=section align=center id="section_' + zaehler + '" >' + it.section + '</td></tr>');
+			++zaehler;
+			if (!it.noheaders)
+			{
+				OUT('<tr><th>&nbsp;</th><th class=itemtabth>Monster</th><th class=itemtabth>Trophy</th><th class=itemtabth>Count</th><th class=itemtabth>Types</th><th class=itemtabth>Level</th></tr>');
+			}
+
+		}
+		else if (it.changelog)
+		{
+			OUT('<td class=itemcell valign=top colspan=6 height=10><b>' + it.changelog + '</b></td>');
+			OUT('</tr><tr>');
+			OUT('<td class=itemcell valign=top colspan=6 height=63>' + it.note + '</td>');
+			OUT('</tr>');
+			OUT('<tr></tr>');
+		}
+		else
+		{
+			class_modifier = "";
+			goto_modifier = "";
+			if (PARAM["id"] && (it.id == PARAM["id"]))
+			{
+				class_modifier = '_mark';
+				goto_modifier = '<a name=goto id=goto></a>';
+			}
+			
+			a_blunt = (it.a_blunt || 0); if (a_blunt == -1) a_blunt = "-";
+			a_edge = (it.a_edge || 0); if (a_edge == -1) a_edge = "-";
+			a_point = (it.a_point || 0); if (a_point == -1) a_point = "-";
+			a_fire = (it.a_fire || 0); if (a_fire == -1) a_fire = "-";
+			a_magic = (it.a_magic || 0); if (a_magic == -1) a_magic = "-";
+			a_fly = (it.a_fly || 0); if (a_fly == -1) a_fly = "-";
+			OUT('<tr>');
+			OUT('<td class=itempic rowspan=2 valign=top>' + goto_modifier + '<img height=100 src="' + it.pic + '" border=0></td>');
+			OUT('<td class=itemcell' + class_modifier + ' valign=top height=20><b>' + it.name + '</b></td>');
+			OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.trophy || '-') + '&nbsp;</td>');
+			OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.count || '-') + '&nbsp;</td>');
+			OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.types + '&nbsp;</td>');
+			OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.level + '</td>');
+			OUT('</tr><tr>');
+			OUT('<td class=itemcell' + class_modifier + ' colspan=5 valign=top height=20>');
+			OUT('<table width=100% cellspacing=0 cellpadding=1 border=0>');
+			OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Attack:</i> </td><td width=0% class=itemcell' + class_modifier + '><nobr>' + (it.weapon || 'N/A') + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</nobr></td><td width=0% class=itemcell' + class_modifier + '><i>Perception:</i> </td><td width=100% class=itemcell' + class_modifier + '>' + (it.perception || '75%') + '</td></tr>');
+			OUT('<tr><td class=itemcell' + class_modifier + '><i>Attributes:</i> </td><td colspan=3 class=itemcell' + class_modifier + '>' + (it.data || '') + '</td></tr>');
+			OUT('<tr><td class=itemcell' + class_modifier + '><i>Armor:</i> </td><td colspan=3 class=itemcell' + class_modifier + '>' + a_blunt + ' / ' + a_edge + ' / ' + a_point + ' (blunt, edge, point)&nbsp;&nbsp;&nbsp;&nbsp;' + a_fire + ' / ' + a_magic + ' / ' + a_fly + ' (fire, magic, wind)' + '</td></tr>');
+			OUT('<tr><td class=itemcell' + class_modifier + ' colspan=4 valign=top>' + it.note + '</td></tr>');
+			OUT('</table>');
+			OUT('</td>');
+			OUT('</tr>');
+			OUT('<tr></tr>');
+		}
+	}
+
+</script>
+
+</table>
+<!--p class=smallnote>[Alle Angaben bezüglich der Daten, beziehen sich auf folgende Reihenfolge der Schutzwerte: Waffen (stumpf/scharf)/Pfeile (stich)/Feuer/Magie/Wirbel. Wenn eine -1 bei einem Schutzwert steht, dann ist dasjenige Monster/Tier immun gegen diese Waffenart.]</p-->
+
+</center>
+
+</html>

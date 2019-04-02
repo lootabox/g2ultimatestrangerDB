@@ -1,0 +1,104 @@
+<html>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK
+href="style.css" type=text/css rel=stylesheet>
+<script>
+var DATA = new Array();
+</script>
+<script src="hamster_eng.js"></script>
+<script src="guide_handling_eng.js"></script>
+
+<center>
+<img class=guideheadline src="img/t_handling_eng.jpg" />
+
+
+
+<table border=0 style="table-layout:fixed;" cellpadding=0 cellspacing=0>
+<tr>
+	<td  width=610>
+<script>
+	var is_first_section = true;
+	var zaehler = 1;
+	for (i=0; i < DATA.length; ++i)
+	{
+		var it = DATA[i];
+
+		class_modifier = "";
+		goto_modifier = "";
+		if (PARAM["id"] && (it.id == PARAM["id"]))
+		{
+			class_modifier = '_mark';
+			goto_modifier = '<a name=goto id=goto></a>';
+		}
+
+		if (it.section)
+		{
+			if (!is_first_section)
+			{
+				OUT('</table>');
+				OUT('</TD></TR><TR><TD background="img/block_b.gif" colspan=2 align=left valign=top ><img src="img/block_lb.gif" width=10 height=8></TD><TD align=left valign=top><img src="img/block_rb.gif" width=8 height=8></TD></TR>');
+				OUT('</TABLE>');
+			}
+			OUT('<p class=section id="section_' + zaehler + '">' + goto_modifier + zaehler + '.&nbsp;' + it.section + '</p>');
+
+			OUT('<TABLE cellSpacing=0 cellPadding=0 width=600 align=center border=0>');
+			OUT('<TR><TD width=2 height=2><IMG src="img/block_lt.gif" width=2 height=2 ></TD><TD width=100% background="img/black.gif"></TD><TD width=8 rowspan=2 background="img/block_r.gif" valign=top><img src="img/block_rt.gif" width=8 height=10></TD></TR>');
+			OUT('<TR><TD width=2 background="img/black.gif"><IMG src="img/pixel.gif" width=2 height=1 ></TD><TD background="img/bg2.gif" class=textblock>');
+			OUT('<table cellpadding=6 cellspacing=0 border=0 width=580 border=0>');
+
+			++zaehler;
+			is_first_section = false;
+		}
+		if (it.headline)
+		{
+			OUT('<tr><td class=itemcell><p class=textblock_headline>' + goto_modifier + it.headline + '</p></td></tr>');
+		}
+		if (it.text)
+		{
+			pictext = "";
+			if (it.pic)
+			{
+				pictext = '<img src="' + it.pic + '" border=0 align=right vspace=5 hspace=10>';
+			}
+			OUT('<tr><td class=textblock' + class_modifier + '>' + goto_modifier + pictext + it.text + '</td></tr>');
+		}
+		else if (it.pic)
+		{
+			OUT('<tr><td class=itemcell align=center>' + goto_modifier + '<img src="' + it.pic + '" border=0></td></tr>');
+		}
+
+	}
+	OUT('</table>');
+	OUT('</TD></TR><TR><TD background="img/block_b.gif" colspan=2 align=left valign=top><img src="img/block_lb.gif" width=10 height=8></TD><TD align=left valign=top><img src="img/block_rb.gif" width=8 height=8></TD></TR>');
+	OUT('</table>');
+
+</script>
+	</td>
+	<td valign=top width=180>
+<script>
+	OUT('<TABLE cellSpacing=0 cellPadding=0 width=170 align=center border=0 class="problem_index">');
+	OUT('<tr><td><ol style="margin-left: 30px">');
+	var zaehler = 1;
+
+	for (i=0; i < DATA.length; ++i)
+	{
+		var it = DATA[i];
+
+		if (it.section)
+		{
+			OUT('<li><a href="#section_' + zaehler + '">' + it.section + '</a></li>');
+			++zaehler;
+		}
+	}
+	OUT('</ol></td></tr>');
+	OUT('</TABLE>');
+</script>
+	</td>
+</tr>
+</table>
+
+
+<p class=smallnote></p>
+
+</center>
+
+</html>
