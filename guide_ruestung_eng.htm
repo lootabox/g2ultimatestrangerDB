@@ -1,84 +1,76 @@
 <html>
-<META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK 
-href="style.css" type=text/css rel=stylesheet>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<LINK href="style.css" type=text/css rel=stylesheet>
 <script>
-var DATA = new Array();
+	var DATA = new Array();
 </script>
 <script src="hamster_eng.js"></script>
 <script src="guide_ruestung_eng.js"></script>
 
 <center>
-<img class=guideheadline src="img/t_ruestung_eng.jpg" />
-<table cellpadding=2 cellspacing=2 border=0 width=400>
+	<img class=guideheadline src="img/t_ruestung_eng.jpg" />
+	<table cellpadding=2 cellspacing=2 border=0 width=400>
 
 
-<script>
-	OUT('<TABLE cellSpacing=0 cellPadding=0 align=center border=0 class="problem_index">');
-	OUT('<tr><td><ul>');
-	var zaehler = 1;
+		<script>
+			OUT('<TABLE cellSpacing=0 cellPadding=0 align=center border=0 class="problem_index">');
+			OUT('<tr><td><ul>');
+			var zaehler = 1;
 
-	for (i=0; i < DATA.length; ++i)
-	{
-		var it = DATA[i];
+			for (i = 0; i < DATA.length; ++i) {
+				var it = DATA[i];
 
-		if (it.section)
-		{
-			OUT('<li><a href="#section_' + zaehler + '">' + it.section + '</a></li>');
-			++zaehler;
-		}
-	}
-	OUT('</ul></td></tr>');
-	OUT('</TABLE>');
-
-	OUT('<table cellpadding=2 cellspacing=2 border=0 width=400>');
-	zaehler = 1;
-	for (i=0; i < DATA.length; ++i)
-	{
-		var it = DATA[i];
-		if (it.section)
-		{
-			OUT('<tr><td colspan=4 class=section align=center id="section_' + zaehler + '" >' + it.section + '</td></tr>');
-			++zaehler;
-			if (!it.noheaders)
-			{
-				OUT('<tr><th>&nbsp;</th><th class=itemtabth>Armor</th><th class=itemtabth>Data*</th><th class=itemtabth>Value</th><!--th class=itemtabth>Note</th--></tr>');
-
+				if (it.section) {
+					OUT('<li><a href="#section_' + zaehler + '">' + it.section + '</a></li>');
+					++zaehler;
+				}
 			}
-		}
-		else if (it.changelog)
-		{
-			OUT('<td rowspan=2 valign=top></td>');
-			OUT('<td class=itemcell valign=top colspan=3 height=10><b>' + it.changelog + '</b></td>');
-			OUT('</tr><tr>');
-			OUT('<td class=itemcell valign=top colspan=3 height=63>' + it.note + '</td>');
-			OUT('</tr>');
-			OUT('<tr></tr>');
-		}
-		else
-		{
-			class_modifier = "";
-			goto_modifier = "";
-			if (PARAM["id"] && (it.id == PARAM["id"]))
-			{
-				class_modifier = '_mark';
-				goto_modifier = '<a name=goto id=goto></a>';
+			OUT('</ul></td></tr>');
+			OUT('</TABLE>');
+
+			OUT('<table cellpadding=2 cellspacing=2 border=0 width=400>');
+			zaehler = 1;
+			for (i = 0; i < DATA.length; ++i) {
+				var it = DATA[i];
+				if (it.section) {
+					OUT('<tr><td colspan=4 class=section align=center id="section_' + zaehler + '" >' + it.section + '</td></tr>');
+					++zaehler;
+					if (!it.noheaders) {
+						OUT('<tr><th>&nbsp;</th><th class=itemtabth>Armor</th><th class=itemtabth>Data*</th><th class=itemtabth>Value</th><!--th class=itemtabth>Note</th--></tr>');
+
+					}
+				}
+				else if (it.changelog) {
+					OUT('<td rowspan=2 valign=top></td>');
+					OUT('<td class=itemcell valign=top colspan=3 height=10><b>' + it.changelog + '</b></td>');
+					OUT('</tr><tr>');
+					OUT('<td class=itemcell valign=top colspan=3 height=63>' + it.note + '</td>');
+					OUT('</tr>');
+					OUT('<tr></tr>');
+				}
+				else {
+					class_modifier = "";
+					goto_modifier = "";
+					if (PARAM["id"] && (it.id == PARAM["id"])) {
+						class_modifier = '_mark';
+						goto_modifier = '<a name=goto id=goto></a>';
+					}
+					OUT('<tr>');
+					OUT('<td class=itempic rowspan=2>' + goto_modifier + '<img height=120 src="' + it.pic + '" border=0></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top height=40><b>' + it.name + '</b></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.data + '</td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.value + '&nbsp;</td>');
+					OUT('</tr><tr>');
+					OUT('<td class=itemcell' + class_modifier + ' colspan=3 valign=top>' + it.note + '</td>');
+					OUT('</tr>');
+					OUT('<tr></tr>');
+				}
 			}
-			OUT('<tr>');
-			OUT('<td class=itempic rowspan=2>' + goto_modifier + '<img height=120 src="' + it.pic + '" border=0></td>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top height=40><b>' + it.name + '</b></td>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.data + '</td>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.value + '&nbsp;</td>');
-			OUT('</tr><tr>');
-			OUT('<td class=itemcell' + class_modifier + ' colspan=3 valign=top>' + it.note + '</td>');
-			OUT('</tr>');
-			OUT('<tr></tr>');
-		}
-	}
 
-</script>
+		</script>
 
-</table>
-<p class=smallnote>* [All Informations about these dates are part of the following order of the protection dates: Weapons/Arrows/Fire/Magic]</p>
+	</table>
+	<p class=smallnote>* [All Informations about these dates are part of the following order of the protection dates: Weapons/Arrows/Fire/Magic]</p>
 
 </center>
 

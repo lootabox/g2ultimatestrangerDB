@@ -1,32 +1,36 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML><HEAD>
-<META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK
-href="style.css" type=text/css rel=stylesheet>
+<HTML>
 
-<script src="hamster_eng.js"></script>
-<script src="navi_eng.js"></script>
+<HEAD>
+	<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+	<LINK href="style.css" type=text/css rel=stylesheet>
+
+	<script src="hamster_eng.js"></script>
+	<script src="navi_eng.js"></script>
 </head>
 
 <script>
 	search = location.search;
 
-	function SetContentURL(url)
-	{
+	function SetContentURL(url) {
 		parent.parent.frames[1].location.href = url; //Workaround wegen Opera
-//		parent.parent.frames['g2db_content'].location.href = url;
+		//		parent.parent.frames['g2db_content'].location.href = url;
 	}
 
 </script>
+
 <BODY class=class_body_white style="margin:0px;">
-<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
-<tr><td><a href="javascript:SetContentURL('content_g2adb_eng.htm');"><img src="img/navi_title_eng.gif" border=0></a></td></tr>
-<script>
-	for (i = 0; i <= g_NavIndex; ++i)
-	{
-		OUT('<tr><td height=22 valign=top class=class_navi_item><a href="navi_eng.htm?data=' + NAVI[i].data + '" target=_parent style="color:#000000;">' + NAVI[i].name + '</a></td></tr>');
-	}
+	<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+		<tr>
+			<td><a href="javascript:SetContentURL('content_g2adb_eng.htm');"><img src="img/navi_title_eng.gif" border=0></a></td>
+		</tr>
+		<script>
+			for (i = 0; i <= g_NavIndex; ++i) {
+				OUT('<tr><td height=22 valign=top class=class_navi_item><a href="navi_eng.htm?data=' + NAVI[i].data + '" target=_parent style="color:#000000;">' + NAVI[i].name + '</a></td></tr>');
+			}
 
-</script>
-</table>
+		</script>
+	</table>
 </body>
+
 </html>

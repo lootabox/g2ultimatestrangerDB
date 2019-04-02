@@ -1,22 +1,24 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML><HEAD>
-<META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK
-href="style.css" type=text/css rel=stylesheet>
+<HTML>
 
-<script src="hamster_eng.js"></script>
-<script src="navi_eng.js"></script>
+<HEAD>
+	<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+	<LINK href="style.css" type=text/css rel=stylesheet>
+
+	<script src="hamster_eng.js"></script>
+	<script src="navi_eng.js"></script>
 </head>
 
 <script>
 	search = location.search;
 
- 	navi_top_height = 60 + (g_NavIndex + 1) * 22;
- 	navi_bottom_height = 3 + (NAVI.length - g_NavIndex - 1) * 22;
+	navi_top_height = 60 + (g_NavIndex + 1) * 22;
+	navi_bottom_height = 3 + (NAVI.length - g_NavIndex - 1) * 22;
 
-document.write('<FRAMESET border=0 frameSpacing=0 frameBorder=NO rows="' + navi_top_height + ',*,' + navi_bottom_height + '">');
-document.write('	<FRAME name=g2db_navitop src="navi_top_eng.htm' + search + '" noResize scrolling=no>');
-document.write('	<FRAME name=g2db_menu src="' + NAVI[i].url + search + '" noResize>');
-//document.write('	<FRAME name=g2db_navibottom src="navi_bottom_eng.htm' + search + '" noResize scrolling=no >');
-document.write('</FRAMESET>');
+	document.write('<FRAMESET border=0 frameSpacing=0 frameBorder=NO rows="' + navi_top_height + ',*,' + navi_bottom_height + '">');
+	document.write('	<FRAME name=g2db_navitop src="navi_top_eng.htm' + search + '" noResize scrolling=no>');
+	document.write('	<FRAME name=g2db_menu src="' + NAVI[i].url + search + '" noResize>');
+	//document.write('	<FRAME name=g2db_navibottom src="navi_bottom_eng.htm' + search + '" noResize scrolling=no >');
+	document.write('</FRAMESET>');
 
 </script>

@@ -1,139 +1,130 @@
 <html>
-<META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK 
-href="style.css" type=text/css rel=stylesheet>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<LINK href="style.css" type=text/css rel=stylesheet>
 <script>
-var DATA = new Array();
+	var DATA = new Array();
 </script>
 <script src="hamster_eng.js"></script>
 <script src="guide_runen_eng.js"></script>
 
 <center>
-<img class=guideheadline src="img/t_runen_eng.jpg" />
+	<img class=guideheadline src="img/t_runen_eng.jpg" />
 
 
-<script>
-	OUT('<TABLE cellSpacing=0 cellPadding=0 align=center border=0 class="problem_index">');
-	OUT('<tr><td><ul>');
-	var zaehler = 1;
+	<script>
+		OUT('<TABLE cellSpacing=0 cellPadding=0 align=center border=0 class="problem_index">');
+		OUT('<tr><td><ul>');
+		var zaehler = 1;
 
-	for (i=0; i < DATA.length; ++i)
-	{
-		var it = DATA[i];
+		for (i = 0; i < DATA.length; ++i) {
+			var it = DATA[i];
 
-		if (it.section)
-		{
-			OUT('<li><a href="#section_' + zaehler + '">' + it.section + '</a></li>');
-			++zaehler;
-		}
-	}
-	OUT('</ul></td></tr>');
-	OUT('</TABLE>');
-
-	OUT('<table cellpadding=2 cellspacing=2 border=0 width=800>');
-	zaehler = 1;
-	for (i=0; i < DATA.length; ++i)
-	{
-		var it = DATA[i];
-
-		class_modifier = "";
-		goto_modifier = "";
-		if (PARAM["id"] && it.id && (it.id == PARAM["id"]))
-		{
-			class_modifier = '_mark';
-			goto_modifier = '<a name=goto id=goto></a>';
-		}
-		
-		if (it.rohling)
-		{
-			OUT('<tr>');
-			OUT('<td class=itempic valign=top align=right>' + goto_modifier + '<img height=80 src="screens/runen/rohling.jpg" border=0></td>');
-			OUT('<td valign=top colspan=4 align=left>');
-			for (;i < DATA.length; ++i)
-			{
-				it = DATA[i];
-				if (!it.rohling) break;
-				OUT('<div class=item_rohling>' + it.rohling + '</div>');
-				
+			if (it.section) {
+				OUT('<li><a href="#section_' + zaehler + '">' + it.section + '</a></li>');
+				++zaehler;
 			}
-			OUT('</td>');
-			OUT('</tr>');
 		}
+		OUT('</ul></td></tr>');
+		OUT('</TABLE>');
 
-		if (it.section)
-		{
-			OUT('<tr><td colspan=4 class=section align=center id="section_' + zaehler + '" >' + it.section + '</td></tr>');
-			++zaehler;
-		}
-		else if (it.teleport)
-		{
-			OUT('<tr>');
-			OUT('<td class=itempic rowspan=2 height=80 align=right><nobr>' + goto_modifier);
-			if (it.pic2) OUT('<img height=80 src="' + it.pic2 + '" border=0>');
-			OUT('<img height=80 src="' + it.pic + '" border=0></nobr></td>');
-			
-			OUT('<td class=itemcell' + class_modifier + ' valign=top height=10 colspan=3 ><b>' + it.teleport + '</b></td>');
-			OUT('</tr><tr>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top height=50 colspan=3>' + it.note + '</td>');
-			OUT('</tr>');
-			OUT('<tr></tr>');
-		}
-		else 
-		{
-			OUT('<tr>');
-			OUT('<td class=itempic rowspan=3 height=80 align=right><nobr>' + goto_modifier);
-			if (it.pic2) OUT('<img height=80 src="' + it.pic2 + '" border=0>');
-			OUT('<img height=80 src="' + it.pic + '" border=0></nobr></td>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top height=10 colspan=2><b>' + it.name + '</b></td>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top rowspan=2 width=300>');
-			OUT('<table border=0 cellspacing=0 cellpadding=1>');
-			if (it.mana) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Mana: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.mana + '</td></tr>');
-			if (it.value || it.value2) {
-				OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Value: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">');
-				if (it.value && it.value2) OUT('(rune) ');
-				if (it.value) OUT('' + it.value);
-				if (it.value && it.value2) OUT(', (scroll) ');
-				if (it.value2) OUT('' + it.value2);
-				OUT('</td></tr>');
+		OUT('<table cellpadding=2 cellspacing=2 border=0 width=800>');
+		zaehler = 1;
+		for (i = 0; i < DATA.length; ++i) {
+			var it = DATA[i];
+
+			class_modifier = "";
+			goto_modifier = "";
+			if (PARAM["id"] && it.id && (it.id == PARAM["id"])) {
+				class_modifier = '_mark';
+				goto_modifier = '<a name=goto id=goto></a>';
 			}
-			//if (it.value2) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Scroll Value: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.value2 + ' GS</td></tr>');
-			//if (it.value) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Rune Value: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.value + ' GS</td></tr>');
-			if (it.trainer) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Teacher: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.trainer + '</td></tr>');
-			if (it.ingred) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Ingredients: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.ingred + '</td></tr>');
-			if (it.ingred) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Learning Points: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.LP + '</td></tr>');
-			OUT('</table>');
-			OUT('</td>');
-			OUT('</tr><tr>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top height=40 colspan=2>');
-			if (it.effect) OUT('<div>' + it.effect + '</div>');
-			if (it.note) OUT('<div>' + it.note + '</div>');
-			OUT('</td>');
-			OUT('</tr>');
-			OUT('<tr></tr>');
-/*
-			OUT('<tr>');
-			OUT('<td class=itempic rowspan=3 height=100 align=right><nobr>' + goto_modifier);
-			if (it.pic2) OUT('<img src="' + it.pic2 + '" border=0>');
-			OUT('<img src="' + it.pic + '" border=0></nobr></td>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top height=10><b>' + it.name + '</b></td>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top>' + it.trainer + '&nbsp;</td>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.mana + '&nbsp;</td>');
-			OUT('</tr><tr>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top height=10>' + it.effect + '</td>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top>' + it.ingred + '</td>');
-			OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.value + '&nbsp;</td>');
-			OUT('</tr><tr>');
-			OUT('<td class=itemcell' + class_modifier + ' colspan=3 valign=top height=60>' + it.LP + '</td>');
-			OUT('<td class=itemcell' + class_modifier + ' colspan=3 valign=top height=60>' + it.note + '</td>');
-			OUT('</tr>');
-			OUT('<tr></tr>');
-*/		
+
+			if (it.rohling) {
+				OUT('<tr>');
+				OUT('<td class=itempic valign=top align=right>' + goto_modifier + '<img height=80 src="screens/runen/rohling.jpg" border=0></td>');
+				OUT('<td valign=top colspan=4 align=left>');
+				for (; i < DATA.length; ++i) {
+					it = DATA[i];
+					if (!it.rohling) break;
+					OUT('<div class=item_rohling>' + it.rohling + '</div>');
+
+				}
+				OUT('</td>');
+				OUT('</tr>');
+			}
+
+			if (it.section) {
+				OUT('<tr><td colspan=4 class=section align=center id="section_' + zaehler + '" >' + it.section + '</td></tr>');
+				++zaehler;
+			}
+			else if (it.teleport) {
+				OUT('<tr>');
+				OUT('<td class=itempic rowspan=2 height=80 align=right><nobr>' + goto_modifier);
+				if (it.pic2) OUT('<img height=80 src="' + it.pic2 + '" border=0>');
+				OUT('<img height=80 src="' + it.pic + '" border=0></nobr></td>');
+
+				OUT('<td class=itemcell' + class_modifier + ' valign=top height=10 colspan=3 ><b>' + it.teleport + '</b></td>');
+				OUT('</tr><tr>');
+				OUT('<td class=itemcell' + class_modifier + ' valign=top height=50 colspan=3>' + it.note + '</td>');
+				OUT('</tr>');
+				OUT('<tr></tr>');
+			}
+			else {
+				OUT('<tr>');
+				OUT('<td class=itempic rowspan=3 height=80 align=right><nobr>' + goto_modifier);
+				if (it.pic2) OUT('<img height=80 src="' + it.pic2 + '" border=0>');
+				OUT('<img height=80 src="' + it.pic + '" border=0></nobr></td>');
+				OUT('<td class=itemcell' + class_modifier + ' valign=top height=10 colspan=2><b>' + it.name + '</b></td>');
+				OUT('<td class=itemcell' + class_modifier + ' valign=top rowspan=2 width=300>');
+				OUT('<table border=0 cellspacing=0 cellpadding=1>');
+				if (it.mana) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Mana: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.mana + '</td></tr>');
+				if (it.value || it.value2) {
+					OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Value: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">');
+					if (it.value && it.value2) OUT('(rune) ');
+					if (it.value) OUT('' + it.value);
+					if (it.value && it.value2) OUT(', (scroll) ');
+					if (it.value2) OUT('' + it.value2);
+					OUT('</td></tr>');
+				}
+				//if (it.value2) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Scroll Value: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.value2 + ' GS</td></tr>');
+				//if (it.value) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Rune Value: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.value + ' GS</td></tr>');
+				if (it.trainer) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Teacher: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.trainer + '</td></tr>');
+				if (it.ingred) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Ingredients: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.ingred + '</td></tr>');
+				if (it.ingred) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Learning Points: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.LP + '</td></tr>');
+				OUT('</table>');
+				OUT('</td>');
+				OUT('</tr><tr>');
+				OUT('<td class=itemcell' + class_modifier + ' valign=top height=40 colspan=2>');
+				if (it.effect) OUT('<div>' + it.effect + '</div>');
+				if (it.note) OUT('<div>' + it.note + '</div>');
+				OUT('</td>');
+				OUT('</tr>');
+				OUT('<tr></tr>');
+				/*
+							OUT('<tr>');
+							OUT('<td class=itempic rowspan=3 height=100 align=right><nobr>' + goto_modifier);
+							if (it.pic2) OUT('<img src="' + it.pic2 + '" border=0>');
+							OUT('<img src="' + it.pic + '" border=0></nobr></td>');
+							OUT('<td class=itemcell' + class_modifier + ' valign=top height=10><b>' + it.name + '</b></td>');
+							OUT('<td class=itemcell' + class_modifier + ' valign=top>' + it.trainer + '&nbsp;</td>');
+							OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.mana + '&nbsp;</td>');
+							OUT('</tr><tr>');
+							OUT('<td class=itemcell' + class_modifier + ' valign=top height=10>' + it.effect + '</td>');
+							OUT('<td class=itemcell' + class_modifier + ' valign=top>' + it.ingred + '</td>');
+							OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.value + '&nbsp;</td>');
+							OUT('</tr><tr>');
+							OUT('<td class=itemcell' + class_modifier + ' colspan=3 valign=top height=60>' + it.LP + '</td>');
+							OUT('<td class=itemcell' + class_modifier + ' colspan=3 valign=top height=60>' + it.note + '</td>');
+							OUT('</tr>');
+							OUT('<tr></tr>');
+				*/
+			}
 		}
-	}
 
-</script>
+	</script>
 
-</table>
-<p class=smallnote></p>
+	</table>
+	<p class=smallnote></p>
 
 </center>
 

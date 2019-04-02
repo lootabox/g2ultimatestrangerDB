@@ -1,16 +1,18 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML><HEAD>
-<META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK
-href="style.css" type=text/css rel=stylesheet>
-<META content="MSHTML 6.00.2800.1170" name=GENERATOR></HEAD>
+<HTML>
+
+<HEAD>
+	<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+	<LINK href="style.css" type=text/css rel=stylesheet>
+	<META content="MSHTML 6.00.2800.1170" name=GENERATOR>
+</HEAD>
 <script src="hamster_eng.js"></script>
 <script>
 	var DATA = new Array();
 	var g_selectedIndex = -1;
 	var DEFAULT_VIEW;
 
-	function LoadIndex(index)
-	{
+	function LoadIndex(index) {
 		menu_url = DATA[index].menu_url;
 		if (!menu_url) menu_url = DEFAULT_MENU_URL + '?data=' + PARAM.data + '&index=' + index;
 		//parent.parent.frames['g2db_content'].location.href = menu_url;
@@ -18,80 +20,64 @@ href="style.css" type=text/css rel=stylesheet>
 		g_selectedIndex = index;
 	}
 
-	function LoadIndexTop(index)
-	{
+	function LoadIndexTop(index) {
 		LoadIndex(index);
 		location.href = 'menu_eng.htm?data=' + PARAM.data + '&index=' + index;
 	}
 
-	function LoadID(id)
-	{
-		Data=false;
-		for (i=0; i<DATA.length; ++i)
-		{
-			if (DATA[i].id == id)
-			{
-			 	Data = DATA[i];
-			 	g_selectedIndex = i;
-			 	break;
-			 }
+	function LoadID(id) {
+		Data = false;
+		for (i = 0; i < DATA.length; ++i) {
+			if (DATA[i].id == id) {
+				Data = DATA[i];
+				g_selectedIndex = i;
+				break;
+			}
 		}
-		if (Data)
-		{
+		if (Data) {
 			menu_url = Data.menu_url;
 			if (!menu_url) menu_url = DEFAULT_MENU_URL;
 			parent.parent.frames['g2db_content'].location.href = menu_url + '?data=' + PARAM.data + '&id=' + id;
 		}
 	}
 
-	function LoadName(name)
-	{
-		Data=false;
-		for (i=0; i<DATA.length; ++i)
-		{
-			if (DATA[i].name == name)
-			{
-			 	Data = DATA[i];
-			 	g_selectedIndex = i;
-			 	break;
-			 }
+	function LoadName(name) {
+		Data = false;
+		for (i = 0; i < DATA.length; ++i) {
+			if (DATA[i].name == name) {
+				Data = DATA[i];
+				g_selectedIndex = i;
+				break;
+			}
 		}
-		if (Data)
-		{
+		if (Data) {
 			menu_url = Data.menu_url;
 			if (!menu_url) menu_url = DEFAULT_MENU_URL;
 			parent.parent.frames['g2db_content'].location.href = menu_url + '?data=' + PARAM.data + '&name=' + name;
 		}
 	}
 
-	function ViewDefault()
-	{
+	function ViewDefault() {
 		is_first_section = true;
 		OUT('<table border=0 cellspacing=0 cellpadding=0 id=menu_table><tr><th id=menu_th_left></th><th id=menu_th_right></th></tr>');
-		for (i = 0; i < DATA.length; ++i)
-		{
-			if (DATA[i].section)
-			{
-				if (is_first_section)
-				{
+		for (i = 0; i < DATA.length; ++i) {
+			if (DATA[i].section) {
+				if (is_first_section) {
 					OUT('<tr><td colspan=2 class=menu_section_first>' + DATA[i].section + '</td></tr>');
 				}
-				else
-				{
+				else {
 					OUT('<tr><td colspan=2 class=menu_section>' + DATA[i].section + '</td></tr>');
 				}
 				is_first_section = false;
 			}
-			else
-			{
+			else {
 				OUT('<tr><td class=menu_item valign=top>-</td><td class=menu_item valign=top><a id=menu_a_item href="javascript:LoadIndex(' + i + ');">' + DATA[i].name + '</a></td></tr>');
 			}
 		}
 		OUT('</table>');
 	}
 
-	function ViewTwoLists()
-	{
+	function ViewTwoLists() {
 		var amap = new Array();
 		var omap = new Object();
 		var okind = new Object();
@@ -101,32 +87,26 @@ href="style.css" type=text/css rel=stylesheet>
 		var pivot_map = -1;
 		var pivot_kind = -1;
 
-		for (i=0; i < DATA.length; ++i)
-		{
+		for (i = 0; i < DATA.length; ++i) {
 			var it = DATA[i];
-			if (it.section || (i==0))
-			{
+			if (it.section || (i == 0)) {
 				if (it.section) section = it.section;
 				else section = "(other)";
 
-				if (!omap[section])
-				{
+				if (!omap[section]) {
 					omap[section] = new Object();
 					amap[amap.length] = section;
 				}
 			}
-			else if (it.name)
-			{
-				if ((it.id && PARAM.id && (it.id == PARAM.id)) || (PARAM.index && (i == PARAM.index)))
-				{
+			else if (it.name) {
+				if ((it.id && PARAM.id && (it.id == PARAM.id)) || (PARAM.index && (i == PARAM.index))) {
 					pivot_map = section;
 					pivot_kind = it.name;
 				}
 				omaplist = omap[section];
 				if (!omaplist[it.name]) omaplist[it.name] = i;
 
-				if (!okind[it.name])
-				{
+				if (!okind[it.name]) {
 					okind[it.name] = new Object;
 				}
 				okindlist = okind[it.name];
@@ -138,8 +118,7 @@ href="style.css" type=text/css rel=stylesheet>
 		}
 
 		var akind = new Array;
-		for (it in okind)
-		{
+		for (it in okind) {
 			akind[akind.length] = it;
 		}
 
@@ -147,8 +126,7 @@ href="style.css" type=text/css rel=stylesheet>
 
 		OUT('<table border=0 cellspacing=0 cellpadding=0 id=menu_table><tr><th id=menu_th_left><th id=menu_th_right></tr>');
 		OUT('<tr><td colspan=2 class=menu_section_first>Area</td></tr>');
-		for (i=0; i<amap.length; ++i)
-		{
+		for (i = 0; i < amap.length; ++i) {
 			section = amap[i];
 
 			if (pivot_map == section) td_class = 'menu_item_highlight';
@@ -159,12 +137,10 @@ href="style.css" type=text/css rel=stylesheet>
 
 			id_a = 'menu_a_item';
 			if (pivot_kind < 0) index = omap_first[section];
-			else
-			{
+			else {
 				omaplist = omap[section];
 				index = omaplist[pivot_kind];
-				if (!index)
-				{
+				if (!index) {
 					index = omap_first[section];
 					id_a = 'menu_a_item_grayed';
 				}
@@ -173,8 +149,7 @@ href="style.css" type=text/css rel=stylesheet>
 
 		}
 		OUT('<tr><td colspan=2 class=menu_section>Topics</td></tr>');
-		for (i=0; i<akind.length; ++i)
-		{
+		for (i = 0; i < akind.length; ++i) {
 			kind = akind[i];
 
 			if (pivot_kind == kind) td_class = 'menu_item_highlight';
@@ -184,12 +159,10 @@ href="style.css" type=text/css rel=stylesheet>
 
 			id_a = 'menu_a_item';
 			if (pivot_map < 0) index = okind_first[kind];
-			else
-			{
+			else {
 				okindlist = okind[kind];
 				index = okindlist[pivot_map];
-				if (!index)
-				{
+				if (!index) {
 					index = okind_first[kind];
 					id_a = 'menu_a_item_grayed';
 				}
@@ -200,12 +173,11 @@ href="style.css" type=text/css rel=stylesheet>
 		OUT('</table>');
 	}
 
-	function OnDataLoaded()
-	{
+	function OnDataLoaded() {
 		if (PARAM.index) LoadIndex([PARAM.index]);
 		else if (PARAM.id) LoadID(PARAM.id);
 		else if (PARAM.name) LoadName(unescape(PARAM.name));
-//		else parent.parent.frames['g2db_content'].location.href = 'content_g2adb_eng.htm?data=' + PARAM.data;
+		//		else parent.parent.frames['g2db_content'].location.href = 'content_g2adb_eng.htm?data=' + PARAM.data;
 
 		if (DEFAULT_VIEW == 'twolists') ViewTwoLists();
 		else ViewDefault();
@@ -215,16 +187,17 @@ href="style.css" type=text/css rel=stylesheet>
 </script>
 
 <BODY class=class_body_white>
-<!-- Liste -->
-<script>
-	var data_file = PARAM.data;
-	if (!data_file || (data_file.length == 0))
-	{
-		data_file = "data_guide_eng.js";
-	}
+	<!-- Liste -->
+	<script>
+		var data_file = PARAM.data;
+		if (!data_file || (data_file.length == 0)) {
+			data_file = "data_guide_eng.js";
+		}
 
-//	document.tagTitle.src='pics/butt_' + data_file + '.jpg';
-	INCLUDE(data_file);
-</script>
+		//	document.tagTitle.src='pics/butt_' + data_file + '.jpg';
+		INCLUDE(data_file);
+	</script>
 
-</BODY></HTML>
+</BODY>
+
+</HTML>
