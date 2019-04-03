@@ -36,7 +36,7 @@
 					OUT('<tr><td colspan=5 class=section align=center id="section_' + zaehler + '" >' + it.section + '</td></tr>');
 					++zaehler;
 					if (!it.noheaders) {
-						OUT('<tr><th>&nbsp;</th><th class=itemtabth>Monster</th><th class=itemtabth>Trophy</th><th class=itemtabth>Count</th><th class=itemtabth>Types</th><th class=itemtabth>Level</th></tr>');
+						OUT('<tr><th class=itemtabth>Monster</th><th class=itemtabth>Attributes</th><th class=itemtabth>Protection</th><th class=itemtabth>Trophy</th><th class=itemtabth>Count</th><th class=itemtabth>Types</th></tr>');
 					}
 
 				}
@@ -55,28 +55,37 @@
 						goto_modifier = '<a name=goto id=goto></a>';
 					}
 
-					a_blunt = (it.a_blunt || 0); if (a_blunt == -1) a_blunt = "-";
-					a_edge = (it.a_edge || 0); if (a_edge == -1) a_edge = "-";
-					a_point = (it.a_point || 0); if (a_point == -1) a_point = "-";
-					a_fire = (it.a_fire || 0); if (a_fire == -1) a_fire = "-";
-					a_magic = (it.a_magic || 0); if (a_magic == -1) a_magic = "-";
-					a_fly = (it.a_fly || 0); if (a_fly == -1) a_fly = "-";
+					var getProtectionAmount = (amount) => amount ? (amount == -1 ? "Immune" : amount) : 0;
 					OUT('<tr>');
-					OUT('<td class=itempic rowspan=2 valign=top>' + goto_modifier + '<img height=100 src="' + it.pic + '" border=0></td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top height=20><b>' + it.name + '</b></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top><table width=100% cellspacing=0 cellpadding=1 border=0>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><b>' + it.name + '</b></td></tr>');
+						OUT('<tr><td></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Level:</i> ' + it.level + '</td></tr>');
+					OUT('</table></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top rowspan=2><table width=100% cellspacing=0 cellpadding=1 border=0>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Attack:</i>&nbsp;</td><td width=0% class=itemcell' + class_modifier + '><nobr>' + (it.weapon || 'N/A') + '</nobr></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Perception:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + (it.perception || '75%') + '</nobr></td></tr>');
+						OUT('<tr><td></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Strength:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + it.d_str + '</nobr></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Dexterity:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + it.d_dex + '</nobr></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Mana:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + it.d_mana + '</nobr></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Life:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + it.d_life + '</nobr></td></tr>');
+					OUT('</table></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top rowspan=2><table width=100% cellspacing=0 cellpadding=1 border=0>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Blunt:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_blunt) + '</nobr></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Edge:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_edge) + '</nobr></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Point:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_point) + '</nobr></td></tr>');
+						OUT('<tr><td></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Fire:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_fire) + '</nobr></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Magic:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_magic) + '</nobr></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Wind:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_fly) + '</nobr></td></tr>');
+					OUT('</table></td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.trophy || '-') + '&nbsp;</td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.count || '-') + '&nbsp;</td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.count || '?') + '&nbsp;</td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.types + '&nbsp;</td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.level + '</td>');
 					OUT('</tr><tr>');
-					OUT('<td class=itemcell' + class_modifier + ' colspan=5 valign=top height=20>');
-					OUT('<table width=100% cellspacing=0 cellpadding=1 border=0>');
-					OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Attack:</i> </td><td width=0% class=itemcell' + class_modifier + '><nobr>' + (it.weapon || 'N/A') + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</nobr></td><td width=0% class=itemcell' + class_modifier + '><i>Perception:</i> </td><td width=100% class=itemcell' + class_modifier + '>' + (it.perception || '75%') + '</td></tr>');
-					OUT('<tr><td class=itemcell' + class_modifier + '><i>Attributes:</i> </td><td colspan=3 class=itemcell' + class_modifier + '>' + (it.data || '') + '</td></tr>');
-					OUT('<tr><td class=itemcell' + class_modifier + '><i>Armor:</i> </td><td colspan=3 class=itemcell' + class_modifier + '>' + a_blunt + ' / ' + a_edge + ' / ' + a_point + ' (blunt, edge, point)&nbsp;&nbsp;&nbsp;&nbsp;' + a_fire + ' / ' + a_magic + ' / ' + a_fly + ' (fire, magic, wind)' + '</td></tr>');
-					OUT('<tr><td class=itemcell' + class_modifier + ' colspan=4 valign=top>' + it.note + '</td></tr>');
-					OUT('</table>');
-					OUT('</td>');
+					OUT('<td class=itempic valign=top>' + goto_modifier + '<img height=120 src="' + it.pic + '" border=0></td>');
+					OUT('<td class=itemcell' + class_modifier + ' colspan=4 valign=top>' + it.note + '</td>');
 					OUT('</tr>');
 					OUT('<tr></tr>');
 				}

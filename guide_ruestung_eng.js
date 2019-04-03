@@ -1,6 +1,6 @@
 
 DATA[DATA.length] = { section: "Changelog", noheaders: true }
-DATA[DATA.length] = { changelog: "category",	note: "asdf" }
+DATA[DATA.length] = { changelog: "Guild specialization",	note: "The Militia has armor designed for fighting other humans, while the Mercenaries armor is more tailored to fighting beasts. Paladins armor undoubtedly offers best protection against most advesaries, but the Dragon Hunter's plating is more effective against dragon fire. Novices and Fire Magicians robes offer less physical protection, but excell against magical attacks." }
 
 DATA[DATA.length] = { section: "Mercenary/Dragon Hunter" };
 DATA[DATA.length] = { id: "ruestung_8",		pic: "screens/ruestungen/leichte_soeldnerruestung.jpg",			name: "Light Mercenary Armor",			data: "30/30/0/0",			value: "500",	note: "You get it from <b>Lee</b> after you joined the mercenaries (quest <b>'Member of the Mercenaries'</b>)." };
@@ -22,19 +22,22 @@ DATA[DATA.length] = { id: "ruestung_6",		pic: "screens/ruestungen/feuermagierrob
 DATA[DATA.length] = { id: "ruestung_7",		pic: "screens/ruestungen/schwere_feuerrobe.jpg",				name: "Heavy Fire Robe",				data: "100/100/50/50",		value: "3000",	note: "You get the Heavy Fire Robe from <b>Pyrokar</b> after the Eye of Innos has been healed (quest <b>'The Eye of Innos'</b>)." };
 
 DATA[DATA.length] = { section: "Guildless" };
-DATA[DATA.length] = { id: "ruestung_14",	pic: "screens/ruestungen/bauernkleidung_1.jpg",					name: "Farmer's Clothing 1",			data: "15/15/0/0",			value: "80",	note: "You will get this one at Lobart's farm (quest <b>'Lobart's work clothes'</b>)." };
-DATA[DATA.length] = { id: "ruestung_15",	pic: "screens/ruestungen/lederruestung.jpg",					name: "Leather Armor",					data: "25/20/5/0",			value: "250",	note: "You can buy it from <b>Matteo</b>, one of the teachers in Khorinis. Furthermore you can get it from <b>Orlan</b>, the landlord of the tavern." };
-DATA[DATA.length] = { id: "ruestung_16",	pic: "screens/ruestungen/ruestung_aus_crawlerplatten.jpg",		name: "Crawler Plate Armor",			data: "70/70/15/0",			value: "1500",	note: "The Crawler Plate Armor will be manufactured by <b>Wolf</b>. <b>Gestath</b> will give you the hint for it. (quest <b>'The Crawler Armor'</b>) You need 10 minecrawler plates for it." };
-
-DATA[DATA.length] = { section: "Addon Armors" };
-DATA[DATA.length] = { id: "ruestung_17",	pic: "screens/ruestungen/ruestung_des_rings_des_wassers.jpg",	name: "Armor of the 'Ring of Water'",	data: "50/50/0/10",			value: "1300",	note: "You get this armor at the meeting of the Ring of Water in <b>Orlan's Tavern</b> from Lares." };
-DATA[DATA.length] = { id: "ruestung_18",	pic: "screens/ruestungen/piratenruestung.jpg",					name: "Pirate armor",					data: "55/55/0/0",			value: "1300",	note: "<b>Greg</b> gives you the armor after he returns from Khorinis." };
-DATA[DATA.length] = { id: "ruestung_19",	pic: "screens/ruestungen/mittlere_banditenruestung.jpg",		name: "Medium Bandit's Armor",			data: "35/35/0/0",			value: "550",	note: "You can fetch this armor from <b>Bones</b> after you made the quest <b>'Razor hunt'</b>." };
-DATA[DATA.length] = { id: "ruestung_20",	pic: "screens/ruestungen/schwere_banditenruestung.jpg",			name: "Heavy Bandit's Armor",			data: "50/50/0/0",			value: "2100",	note: "You can buy it from <b>Huno</b> in the bandit's camp. When you make the quest <b>'A package of lock	picks'</b> for <b>Fisk</b> you will get the armor cheaper from him." };
-DATA[DATA.length] = { id: "ruestung_21",	pic: "screens/ruestungen/ruestung_von_ravens_garde.jpg",		name: "Armor of Raven's guard",			data: "70/70/0/0",			value: "1300",	note: "You can find this in Bloodwyn's chest." };
 DATA[DATA.length] = { id: "ruestung_22",	pic: "screens/ruestungen/buerger_kleidung.jpg",					name: "Citizen's Clothing 1",			data: "10/10/0/0",			value: "120",	note: "You can find the clothing in the right chest of the storage of Matteo" };
 DATA[DATA.length] = { id: "ruestung_23",	pic: "screens/ruestungen/buerger_kleidung1.jpg",				name: "Citizen's Clothing 2",			data: "10/10/0/0",			value: "120",	note: "You can find the clothing in the right chest of the storage of Matteo" };
 DATA[DATA.length] = { id: "ruestung_24",	pic: "screens/ruestungen/buerger_kleidung2.jpg",				name: "Citizen's Clothing 3",			data: "10/10/0/0",			value: "120",	note: "You can find the clothing in the right chest of the storage of Matteo" };
+DATA[DATA.length] = { id: "ruestung_14",	pic: "screens/ruestungen/bauernkleidung_1.jpg",					name: "Farmer's Clothing 1",			data: "15/15/5/0",			value: "80",	note: "You will get this one at Lobart's farm (quest <b>'Lobart's work clothes'</b>)." };
+DATA[DATA.length] = { id: "ruestung_15",	pic: "screens/ruestungen/lederruestung.jpg",					name: "Leather Armor",					data: "25/20/0/0",			value: "250",	note: "You can buy it from <b>Matteo</b>, one of the teachers in Khorinis. Furthermore you can get it from <b>Orlan</b>, the landlord of the tavern." };
+DATA[DATA.length] = { id: "ruestung_17",	pic: "screens/ruestungen/ruestung_des_rings_des_wassers.jpg",	name: "Armor of the 'Ring of Water'",	data: "50/50/0/10",			value: "1300",	note: "You get this armor at the meeting of the Ring of Water in <b>Orlan's Tavern</b> from Lares." };
+DATA[DATA.length] = { id: "ruestung_16",	pic: "screens/ruestungen/ruestung_aus_crawlerplatten.jpg",		name: "Crawler Plate Armor",			data: "70/70/15/0",			value: "1500",	note: "The Crawler Plate Armor will be manufactured by <b>Wolf</b>. <b>Gestath</b> will give you the hint for it. (quest <b>'The Crawler Armor'</b>) You need 10 minecrawler plates for it." };
+
+DATA[DATA.length] = { section: "Pirate" };
+DATA[DATA.length] = { id: "ruestung_45",	pic: "screens/ruestungen/piratenkleidung.jpg",					name: "Pirate clothes",					data: "40/40/0/0",			value: "1100",	note: "All pirates who don't wear a Pirate Armor wear these Pirate clothes (<b>Skip</b>...)." };
+DATA[DATA.length] = { id: "ruestung_18",	pic: "screens/ruestungen/piratenruestung.jpg",					name: "Pirate armor",					data: "55/55/0/0",			value: "1300",	note: "<b>Greg</b> gives you the armor after he returns from Khorinis." };
+
+DATA[DATA.length] = { section: "Bandit" };
+DATA[DATA.length] = { id: "ruestung_19",	pic: "screens/ruestungen/mittlere_banditenruestung.jpg",		name: "Medium Bandit's Armor",			data: "35/35/0/0",			value: "550",	note: "You can fetch this armor from <b>Bones</b> after you made the quest <b>'Razor hunt'</b>." };
+DATA[DATA.length] = { id: "ruestung_20",	pic: "screens/ruestungen/schwere_banditenruestung.jpg",			name: "Heavy Bandit's Armor",			data: "50/50/0/0",			value: "2100",	note: "You can buy it from <b>Huno</b> in the bandit's camp. When you make the quest <b>'A package of lock	picks'</b> for <b>Fisk</b> you will get the armor cheaper from him." };
+DATA[DATA.length] = { id: "ruestung_21",	pic: "screens/ruestungen/ruestung_von_ravens_garde.jpg",		name: "Armor of Raven's guard",			data: "70/70/0/0",			value: "1300",	note: "You can find this in Bloodwyn's chest." };
 
 DATA[DATA.length] = { section: "Armors which you can't get in the game" };
 DATA[DATA.length] = { id: "ruestung_25",	pic: "screens/ruestungen/bauernkleidung_2.jpg",					name: "Farmer's Clothing 2",			data: "15/15/0/0",			value: "100",	note: "Worn by some farmers." };
@@ -57,7 +60,6 @@ DATA[DATA.length] = { id: "ruestung_41",	pic: "screens/ruestungen/zerrissene_rue
 DATA[DATA.length] = { id: "ruestung_42",	pic: "screens/ruestungen/leichte_kdw.jpg",						name: "Light CoW",						data: "50/50/25/25",		value: "1300",	note: "Light Water Mage's Robe." };
 DATA[DATA.length] = { id: "ruestung_43",	pic: "screens/ruestungen/wassermagierrobe.jpg",					name: "Water Mage's Robe",				data: "100/100/50/50",		value: "450",	note: "All Water Mages wear this robe." };
 DATA[DATA.length] = { id: "ruestung_44",	pic: "screens/ruestungen/kapitaens_kleidung.jpg",				name: "Captain's clothes",				data: "60/60/0/0",			value: "1500",	note: "<b>Greg's</b> armor." };
-DATA[DATA.length] = { id: "ruestung_45",	pic: "screens/ruestungen/piratenkleidung.jpg",					name: "Pirate clothes",					data: "40/40/0/0",			value: "1100",	note: "All pirates who don't wear a Pirate Armor wear these Pirate clothes (<b>Skip</b>...)." };
 DATA[DATA.length] = { id: "ruestung_46",	pic: "screens/ruestungen/erzbaronruestung.jpg",					name: "Ore Baron Armor",				data: "70/70/0/0",			value: "1300",	note: "Former Ore Barons wear this armor." };
 DATA[DATA.length] = { id: "ruestung_47",	pic: "screens/ruestungen/ravens_ruestung.jpg",					name: "Raven's Armor",					data: "100/100/100/100",	value: "1300",	note: "This armor is only worn by <b>Raven</b>, <b>Rhademes</b> and <b>Quarhodron</b>." };
 DATA[DATA.length] = { id: "ruestung_48",	pic: "screens/ruestungen/alte_ruestung.jpg",					name: "Old Armor",						data: "50/50/50/50",		value: "-",		note: "Looks like Raven's armor." };
