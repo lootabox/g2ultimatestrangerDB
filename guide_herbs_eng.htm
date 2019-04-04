@@ -32,6 +32,7 @@
 			zaehler = 1;
 			for (i = 0; i < DATA.length; ++i) {
 				var it = DATA[i];
+				var it2 = DATA[i+1];
 
 				class_modifier = "";
 				goto_modifier = "";
@@ -41,13 +42,16 @@
 				}
 
 				if (it.section) {
-					OUT('<tr><td colspan=4 class=section align=center id="section_' + zaehler + '" >' + it.section + '</td></tr>');
+					OUT('<tr><td colspan=6 class=section align=center id="section_' + zaehler + '" >' + it.section + '</td></tr>');
 					++zaehler;
-					OUT('<tr><th>&nbsp;</th><th class=itemtabth>Herb</th><th class=itemtabth>Effect</th><th class=itemtabth>Value</th></tr>');
+					OUT('<tr>');
+					OUT('<th>&nbsp;</th><th class=itemtabth>Herb</th><th class=itemtabth>Value</th>');
+					OUT('<th>&nbsp;</th><th class=itemtabth>Herb</th><th class=itemtabth>Value</th>');
+					OUT('</tr>');
 
 				}
 				else if (it.subtype == 'comment') {
-					OUT('<tr><td colspan=4 class=itemcomment valign=top>' + goto_modifier + it.text + '</td></tr>');
+					OUT('<tr><td colspan=6 class=itemcomment valign=top>' + goto_modifier + it.text + '</td></tr>');
 				}
 				else {
 					class_modifier = "";
@@ -59,11 +63,29 @@
 					OUT('<tr>');
 					OUT('<td class=itempic rowspan=2 width=100 height=100>' + goto_modifier + '<img src="' + it.pic + '" border=0></td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top height=10><b>' + it.name + '</b></td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top>' + it.effect + '&nbsp;</td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.value + '&nbsp;</td>');
+					if (it2 && it2.id) {
+						OUT('<td class=itempic rowspan=2 width=100 height=100>' + goto_modifier + '<img src="' + it2.pic + '" border=0></td>');
+						OUT('<td class=itemcell' + class_modifier + ' valign=top height=10><b>' + it2.name + '</b></td>');
+						OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it2.value + '&nbsp;</td>');
+					}
 					OUT('</tr><tr>');
-					OUT('<td class=itemcell' + class_modifier + ' colspan=3 valign=top height=60>' + it.text + '</td>');
+					OUT('<td class=itemcell' + class_modifier + ' colspan=2 valign=top height=60>');
+					if (it.effect) { OUT('<u><i>Effect:</i></u> ' + it.effect + '<br>'); }
+					if (it.text) { OUT('' + it.text + '<br>'); }
+					if (it.ingredients) { OUT('<u><i>Ingredients:</i></u> ' + it.ingredients + '<br>'); }
+					if (it.teachers) { OUT('<u><i>Teachers:</i></u> ' + it.teachers + '<br>'); }
+					OUT('</td>');
+					if (it2 && it2.id) {
+						OUT('<td class=itemcell' + class_modifier + ' colspan=2 valign=top height=60>');
+						if (it2.effect) { OUT('<u><i>Effect:</i></u> ' + it2.effect + '<br>'); }
+						if (it2.text) { OUT('' + it2.text + '<br>'); }
+						if (it2.ingredients) { OUT('<u><i>Ingredients:</i></u> ' + it2.ingredients + '<br>'); }
+						if (it2.teachers) { OUT('<u><i>Teachers:</i></u> ' + it2.teachers + '<br>'); }
+						OUT('</td>');
+					}
 					OUT('<tr></tr>');
+					if (it2 && it2.id) { ++i; }
 				}
 			}
 
