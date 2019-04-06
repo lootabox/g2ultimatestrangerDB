@@ -35,9 +35,12 @@
 				var it = DATA[i];
 				if (it.section) {
 					OUT('<tr><td colspan=8 class=section align=center id="section_' + zaehler + '" >' + it.section + '</td></tr>');
+					if (it.text) {
+						OUT('<tr><td></td><td colspan=7 class=itemcomment valign=top>' + it.text + '</td></tr>');
+					}
 					++zaehler;
 					if (!it.noheaders) {
-						OUT('<tr><th class=itemtabth>&nbsp;</th><th class=itemtabth>Name</th><th class=itemtabth>Damage</th><th class=itemtabth>Range</th><th class=itemtabth>' + it.defaultskill + '</th><th class=itemtabth>Talent Bonus</th><th class=itemtabth>Damage Type</th><th class=itemtabth>Value</th></tr>');
+						OUT('<tr><th class=itemtabth>&nbsp;</th><th class=itemtabth>Name</th><th class=itemtabth>Damage</th><th class=itemtabth>' + (it.ranged ? 'Range' : 'Reach') + '</th><th class=itemtabth>' + it.defaultskill + '</th><th class=itemtabth>Bonus</th><th class=itemtabth>Damage Type</th><th class=itemtabth>Value</th></tr>');
 					}
 				}
 				else if (it.changelog) {
@@ -57,13 +60,13 @@
 					}
 					OUT('<tr>');
 					OUT('<td class=itempic rowspan=2 valign=top>' + goto_modifier + '<img height=80 src="' + it.pic + '" border=0></td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top height=10><b>' + it.name + '</b></td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.hits + '</td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.range + '</td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.skill + '</td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.bonus + '</td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.type + '</td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.value + '</td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top height=10><b><nobr>' + it.name + '</nobr></b></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center><nobr>' + it.hits + '</nobr></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center><nobr>' + it.range + '</nobr></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center><nobr>' + (it.skill || '-') + '</nobr></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center><nobr>' + it.bonus + '</nobr></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center><nobr>' + it.type + '</nobr></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center><nobr>' + it.value + '</nobr></td>');
 					OUT('</tr><tr>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top colspan=7 height=63>' + it.note + '</td>');
 					OUT('</tr>');
