@@ -61,7 +61,7 @@
 				OUT('<tr>');
 				OUT('<td class=itempic rowspan=2 height=80 align=right><nobr>' + goto_modifier);
 				if (it.pic2) OUT('<img height=80 src="' + it.pic2 + '" border=0>');
-				OUT('<img height=80 src="' + it.pic + '" border=0></nobr></td>');
+				if (it.pic) OUT('<img height=80 src="' + it.pic + '" border=0></nobr></td>');
 
 				OUT('<td class=itemcell' + class_modifier + ' valign=top height=10 colspan=3 ><b>' + it.teleport + '</b></td>');
 				OUT('</tr><tr>');
@@ -73,7 +73,7 @@
 				OUT('<tr>');
 				OUT('<td class=itempic rowspan=3 height=80 align=right><nobr>' + goto_modifier);
 				if (it.pic2) OUT('<img height=80 src="' + it.pic2 + '" border=0>');
-				OUT('<img height=80 src="' + it.pic + '" border=0></nobr></td>');
+				if (it.pic) OUT('<img height=80 src="' + it.pic + '" border=0></nobr></td>');
 				OUT('<td class=itemcell' + class_modifier + ' valign=top height=10 colspan=2><b>' + it.name + '</b></td>');
 				OUT('<td class=itemcell' + class_modifier + ' valign=top rowspan=2 width=300>');
 				OUT('<table border=0 cellspacing=0 cellpadding=1>');
@@ -104,7 +104,7 @@
 							OUT('<tr>');
 							OUT('<td class=itempic rowspan=3 height=100 align=right><nobr>' + goto_modifier);
 							if (it.pic2) OUT('<img src="' + it.pic2 + '" border=0>');
-							OUT('<img src="' + it.pic + '" border=0></nobr></td>');
+							if (it.pic) OUT('<img src="' + it.pic + '" border=0></nobr></td>');
 							OUT('<td class=itemcell' + class_modifier + ' valign=top height=10><b>' + it.name + '</b></td>');
 							OUT('<td class=itemcell' + class_modifier + ' valign=top>' + it.trainer + '&nbsp;</td>');
 							OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.mana + '&nbsp;</td>');
