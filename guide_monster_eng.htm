@@ -36,7 +36,7 @@
 					OUT('<tr><td colspan=5 class=section align=center id="section_' + zaehler + '" >' + it.section + '</td></tr>');
 					++zaehler;
 					if (!it.noheaders) {
-						OUT('<tr><th class=itemtabth>Monster</th><th class=itemtabth>Attributes</th><th class=itemtabth>Protection</th><th class=itemtabth>Trophy</th><th class=itemtabth>Count</th><th class=itemtabth>Types</th></tr>');
+						OUT('<tr><th></th><th class=itemtabth>Monster</th><th class=itemtabth>Attributes</th><th class=itemtabth>Protection</th><th class=itemtabth>Trophy</th><th class=itemtabth>Count</th></tr>');
 					}
 
 				}
@@ -57,10 +57,13 @@
 
 					var getProtectionAmount = (amount) => amount ? (amount == -1 ? "Immune" : amount) : 0;
 					OUT('<tr>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top><table width=100% cellspacing=0 cellpadding=1 border=0>');
+					OUT('<td class=itempic valign=top rowspan=2>' + goto_modifier + '<img height=120 src="' + it.pic + '" border=0></td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top rowspan=2><table width=100% cellspacing=0 cellpadding=1 border=0>');
 						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><b>' + it.name + '</b></td></tr>');
 						OUT('<tr><td></td></tr>');
 						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Level:</i> ' + it.level + '</td></tr>');
+						OUT('<tr><td></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '>' + it.types + '</td></tr>');
 					OUT('</table></td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top rowspan=2><table width=100% cellspacing=0 cellpadding=1 border=0>');
 						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Attack:</i>&nbsp;</td><td width=0% class=itemcell' + class_modifier + '><nobr>' + (it.weapon || 'N/A') + '</nobr></td></tr>');
@@ -80,12 +83,10 @@
 						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Magic:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_magic) + '</nobr></td></tr>');
 						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Wind:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_fly) + '</nobr></td></tr>');
 					OUT('</table></td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.trophy || '-') + '&nbsp;</td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.count || '?') + '&nbsp;</td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.types + '&nbsp;</td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.trophy || '-') + '</td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.count || '?') + '</td>');
 					OUT('</tr><tr>');
-					OUT('<td class=itempic valign=top>' + goto_modifier + '<img height=120 src="' + it.pic + '" border=0></td>');
-					OUT('<td class=itemcell' + class_modifier + ' colspan=4 valign=top>' + it.note + '</td>');
+					OUT('<td class=itemcell height=57' + class_modifier + ' colspan=2 valign=top>' + it.note + '</td>');
 					OUT('</tr>');
 					OUT('<tr></tr>');
 				}

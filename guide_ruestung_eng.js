@@ -1,6 +1,6 @@
 
 DATA[DATA.length] = { section: "Changelog", noheaders: true }
-DATA[DATA.length] = { changelog: "Damage types",			note: "Protection against Weapons, Arrows and Fire is renamed to Edge, Point and Dragon fire. Hidden protection value for Blunt is exposed. If armor does not give protection against a type, that type is not shown on that armor. Dialogs for buying armor are all similar now and the order for protection is Blunt/Edge/Point/Magic/Dragon fire." };
+DATA[DATA.length] = { changelog: "Damage types",			note: "Protection against Weapons, Arrows and Fire is renamed to Edge, Point and Dragon fire. Hidden protection value for Blunt is exposed. If armor does not give protection against a type, that type is not shown on that armor. Dialogs for buying armor are all similar now and the order for listing protection values is always Blunt/Edge/Point/Magic/Dragon fire." };
 DATA[DATA.length] = { changelog: "Guild specialization",	note: "The Militia has armor designed for fighting other humans, while the Mercenaries armor is more tailored to fighting beasts. Paladins armor undoubtedly offers best protection against most advesaries, but the Dragon Hunter's plating is more effective against dragon fire. Novices and Fire Magicians robes offer less physical protection, but excell against magical attacks." };
 DATA[DATA.length] = { changelog: "Random",	note: "<nobr><li>Addon armors have correct material tags.</li></nobr>" };
 
