@@ -53,7 +53,7 @@
 				OUT('</tr>');
 			}
 
-			if (it.section) {
+			else if (it.section) {
 				OUT('<tr><td colspan=4 class=section align=center id="section_' + zaehler + '" >' + it.section + '</td></tr>');
 				++zaehler;
 			}
@@ -90,7 +90,7 @@
 				//if (it.value) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Rune Value: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.value + ' GS</td></tr>');
 				if (it.trainer) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Teacher: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.trainer + '</td></tr>');
 				if (it.ingred) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Ingredients: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.ingred + '</td></tr>');
-				if (it.ingred) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Learning Points: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.LP + '</td></tr>');
+				if (it.LP) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Learning Points: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.LP + '</td></tr>');
 				OUT('</table>');
 				OUT('</td>');
 				OUT('</tr><tr>');
