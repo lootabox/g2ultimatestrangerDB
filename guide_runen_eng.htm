@@ -77,7 +77,17 @@
 				OUT('<td class=itemcell' + class_modifier + ' valign=top height=10 colspan=2><b>' + it.name + '</b></td>');
 				OUT('<td class=itemcell' + class_modifier + ' valign=top rowspan=2 width=300>');
 				OUT('<table border=0 cellspacing=0 cellpadding=1>');
-				if (it.mana) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Mana: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.mana + '</td></tr>');
+				if (it.mana) {
+					OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Mana: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">');
+					if (it.pic)			OUT('(rune) ');
+										OUT('' + it.mana);
+					if (it.maxlevel)	OUT(' per tier (max ' + it.mana*it.maxlevel + ')');
+					if (it.pic)			OUT(', ');	if (it.pic && it.maxlevel) OUT('<br>')
+					if (it.pic)			OUT('(scroll) ');
+										OUT('' +		 Math.max(5, Math.floor(it.mana/10)*5));
+					if (it.maxlevel)	OUT(' per tier (max ' + it.maxlevel*Math.max(5, Math.floor(it.mana/10)*5) + ')');
+					OUT('</td></tr>');
+				}
 				if (it.value || it.value2) {
 					OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Value: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">');
 					if (it.value && it.value2) OUT('(rune) ');
