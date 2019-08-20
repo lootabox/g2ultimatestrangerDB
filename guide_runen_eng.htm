@@ -82,9 +82,8 @@
 					if (it.pic)			OUT('(rune) ');
 										OUT('' + it.mana);
 					if (it.maxlevel)	OUT(' per tier (max ' + it.mana*it.maxlevel + ')');
-					if (it.pic)			OUT(', ');	if (it.pic && it.maxlevel) OUT('<br>')
-					if (it.pic)			OUT('(scroll) ');
-										OUT('' +		 Math.max(5, Math.floor(it.mana/10)*5));
+					if (it.pic2)		{ OUT(', ');	if (it.maxlevel) OUT('<br>') };
+					if (it.pic2)		{ OUT('(scroll) ');	OUT('' +		 Math.max(5, Math.floor(it.mana/10)*5)); };
 					if (it.maxlevel)	OUT(' per tier (max ' + it.maxlevel*Math.max(5, Math.floor(it.mana/10)*5) + ')');
 					OUT('</td></tr>');
 				}
