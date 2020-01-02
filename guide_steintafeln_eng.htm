@@ -1,0 +1,76 @@
+<html>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<LINK href="style.css" type=text/css rel=stylesheet>
+<script>
+
+	var DATA = new Array();
+
+</script>
+<script src="hamster_eng.js"></script>
+<script src="guide_steintafeln_eng.js"></script>
+
+<center>
+	<img class=guideheadline src="img/t_steintafeln_eng.jpg" />
+	<TABLE cellpadding=0 cellspacing=0 border=0 width=800>
+		<TR>
+			<TD>
+				<table cellpadding=2 cellspacing=2 border=0>
+					<script>
+						var zaehler = 1;
+						for (i=0; i < DATA.length; ++i)
+						{
+							var it = DATA[i];
+							if (it.section)
+							{
+								OUT('<tr><td colspan=4 class=section align=center><a id="headline_' + zaehler + '"></a>' + it.section + '</td></tr>');
+								OUT('<tr><th class=itemtabth>&nbsp;</th><th class=itemtabth>Name</th><th class=itemtabth>Effect</th><th class=itemtabth>Value</th></tr>');
+								++zaehler;
+							}
+							else
+							{
+								class_modifier = "";
+								goto_modifier = "";
+								if (PARAM["id"] && (it.id == PARAM["id"]))
+								{
+									class_modifier = '_mark';
+									goto_modifier = '<a name=goto id=goto></a>';
+								}
+								OUT('<tr>');
+								OUT('<td class=itempic rowspan=2 valign=top>' + goto_modifier + '<img src="' + it.pic + '" border=0></td>');
+								OUT('<td class=itemcell' + class_modifier + ' valign=top height=10><nobr><b>' + it.name + '</b></nobr></td>');
+								OUT('<td class=itemcell' + class_modifier + ' valign=top>' + it.effect + '</td>');
+								OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + it.value + '</td>');
+								OUT('</tr><tr>');
+								OUT('<td class=itemcell' + class_modifier + ' valign=top colspan=3 height=60>' + it.note + '</td>');
+								OUT('</tr>');
+								OUT('<tr></tr>');
+							}
+						}
+					</script>
+				</table>
+			</TD>
+			<TD valign=top>
+			<script>
+				OUT('<TABLE cellSpacing=0 cellPadding=0 align=center border=0 class="problem_index">');
+				OUT('<tr><td><ol style="margin-left: 10px">');
+				var zaehler = 1;
+
+				for (i=0; i < DATA.length; ++i)
+				{
+					var it = DATA[i];
+
+					if (it.section)
+					{
+						OUT('<nobr><li><a href="#headline_' + zaehler + '">' + it.section + '</a></li></nobr>');
+						++zaehler;
+					}
+				}
+				OUT('</ol></td></tr>');
+				OUT('</TABLE>');
+			</script>
+			</TD>
+		</TR>
+	</TABLE>
+</center>
+
+</html>
