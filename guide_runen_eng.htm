@@ -79,20 +79,20 @@
 				OUT('<table border=0 cellspacing=0 cellpadding=1>');
 				if (it.mana) {
 					OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Mana: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">');
-					if (it.pic)			OUT('(rune) ');
-										OUT('' + it.mana);
-					if (it.maxlevel)	OUT(' per tier (max ' + it.mana*it.maxlevel + ')');
-					if (it.pic2)		{ OUT(', ');	if (it.maxlevel) OUT('<br>') };
-					if (it.pic2)		{ OUT('(scroll) ');	OUT('' +		 Math.max(5, Math.floor(it.mana/10)*5)); };
-					if (it.maxlevel)	OUT(' per tier (max ' + it.maxlevel*Math.max(5, Math.floor(it.mana/10)*5) + ')');
+					if (it.pic)				OUT('(rune) ' + it.mana);
+					if (it.maxlevel)		OUT(' per tier (max ' + it.mana*it.maxlevel + ')');
+					if (it.pic && it.pic2)	{ OUT(', ');	if (it.maxlevel) OUT('<br>') };
+					if (it.pic2)			OUT('(scroll) ' + Math.max(5, Math.floor(it.mana/10)*5));
+					if (it.maxlevel)		OUT(' per tier (max ' + it.maxlevel*Math.max(5, Math.floor(it.mana/10)*5) + ')');
 					OUT('</td></tr>');
 				}
 				if (it.value || it.value2) {
 					OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Value: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">');
-					if (it.value && it.value2) OUT('(rune) ');
-					if (it.value) OUT('' + it.value);
-					if (it.value && it.value2) OUT(', (scroll) ');
-					if (it.value2) OUT('' + it.value2);
+					if (it.value) 				OUT('(rune) ');
+					if (it.value)				OUT('' + it.value);
+					if (it.value && it.value2)	OUT(', ');
+					if (it.value2)				OUT('(scroll) ');
+					if (it.value2)				OUT('' + it.value2);
 					OUT('</td></tr>');
 				}
 				//if (it.value2) OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Scroll Value: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">' + it.value2 + ' GS</td></tr>');
