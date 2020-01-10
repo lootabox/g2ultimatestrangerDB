@@ -3,7 +3,7 @@ DATA[DATA.length] = { subtype: "comment", text: "For all potions a laboratory fl
 
 DATA[DATA.length] = { section: "Herbs" };
 DATA[DATA.length] = { id: "herb_6",		pic: "screens/kraeuter/herb_1.jpg",				name: "Turnip",							effect: "Regenerates 2 life.",														value: "3",		text: "" };
-DATA[DATA.length] = { id: "herb_25",	pic: "screens/kraeuter/unkraut.jpg",			name: "Weed",							effect: "None",																		value: "",		text: "" };
+DATA[DATA.length] = { id: "herb_25",	pic: "screens/kraeuter/unkraut.jpg",			name: "Stoneroot",						effect: "Regenerates 25 mana.",														value: "20",	text: "<li>Renamed from weed.</li>" };
 DATA[DATA.length] = { id: "herb_18",	pic: "screens/kraeuter/herb_4.jpg",				name: "Woodland Berry",					effect: "Regenerates 5 life.",														value: "10",	text: "" };
 DATA[DATA.length] = { id: "herb_19",	pic: "screens/kraeuter/herb_13.jpg",			name: "Meadow Berry",					effect: "Regenerates 5 life.",														value: "10",	text: "" };
 DATA[DATA.length] = { id: "herb_12",	pic: "screens/kraeuter/herb_5.jpg",				name: "Healing Plant",					effect: "Regenerates 10 life.",														value: "20",	text: "" };
