@@ -43,9 +43,9 @@
 				else if (it.changelog) {
 					OUT('<td class=itemcell valign=top colspan=6 height=10><b>' + it.changelog + '</b></td>');
 					OUT('</tr><tr>');
-					OUT('<td class=itemcell valign=top colspan=6 height=63>' + it.note + '</td>');
+					OUT('<td class=itemcell valign=top colspan=6 height=50>' + it.note + '</td>');
 					OUT('</tr>');
-					OUT('<tr></tr>');
+					OUT('<tr><td></td></tr>');
 				}
 				else {
 					class_modifier = "";
@@ -78,10 +78,11 @@
 						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Blunt:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_blunt) + '</nobr></td></tr>');
 						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Edge:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_edge) + '</nobr></td></tr>');
 						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Point:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_point) + '</nobr></td></tr>');
-						OUT('<tr><td></td></tr>');
 						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Fire:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_fire) + '</nobr></td></tr>');
 						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Magic:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_magic) + '</nobr></td></tr>');
-						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Wind:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_fly) + '</nobr></td></tr>');
+						//OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Wind:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + getProtectionAmount(it.a_fly) + '</nobr></td></tr>');
+						OUT('<tr><td></td></tr>');
+						OUT('<tr><td width=0% class=itemcell' + class_modifier + '><i>Weak:</i>&nbsp;</td><td width=100% class=itemcell' + class_modifier + '>' + (it.weak || '-') + '</nobr></td></tr>');
 					OUT('</table></td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.trophy || '-') + '</td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.count || '?') + '</td>');
