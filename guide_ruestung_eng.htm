@@ -36,9 +36,8 @@
 					if (!it.noheaders) {
 						OUT('<tr><th>&nbsp;</th>');
 						OUT('<th class=itemtabth>Armor</th>');
-						OUT('<th class=itemtabth width=30>Blunt</th>');
-						OUT('<th class=itemtabth width=30>Edge</th>');
-						OUT('<th class=itemtabth width=30>Point</th>');
+						OUT('<th class=itemtabth width=30>Weapon</th>');
+						OUT('<th class=itemtabth width=30>Monster</th>');
 						OUT('<th class=itemtabth width=30>Magic</th>');
 						OUT('<th class=itemtabth width=30>Dragon fire</th>');
 						OUT('<th class=itemtabth width=50>Value</th>');
@@ -62,9 +61,8 @@
 					OUT('<tr>');
 					OUT('<td class=itempic rowspan=2>' + goto_modifier + '<img height=120 src="' + it.pic + '" border=0></td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top height=40><b>' + it.name + '</b></td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.p_blunt || '-') + '</td>');
-					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.p_edge || '-') + '</td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.p_point || '-') + '</td>');
+					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.p_edge || '-') + '</td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.p_magic || '-') + '</td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.p_fire || '-') + '</td>');
 					OUT('<td class=itemcell' + class_modifier + ' valign=top align=center>' + (it.value || '-') + '&nbsp;</td>');
