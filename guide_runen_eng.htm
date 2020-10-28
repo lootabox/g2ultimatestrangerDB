@@ -83,7 +83,7 @@
 					if (it.maxlevel)		OUT(' per tier (max ' + it.mana*it.maxlevel + ')');
 					if (it.pic && it.pic2)	{ OUT(', ');	if (it.maxlevel) OUT('<br>') };
 					if (it.pic2)			OUT('(scroll) ' + Math.floor((it.mana+1)/2));
-					if (it.maxlevel)		OUT(' per tier (max ' + it.maxlevel*Math.max(5, Math.floor(it.mana/10)*5) + ')');
+					if (it.maxlevel)		OUT(' per tier (max ' + it.maxlevel*Math.floor((it.mana+1)/2) + ')');
 					OUT('</td></tr>');
 				}
 				if (it.value || it.value2) {
