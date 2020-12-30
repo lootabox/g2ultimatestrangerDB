@@ -87,6 +87,7 @@ DATA[DATA.length] = {id:"steintafel_11", pic:"screens/steintafeln/steintafel_leb
 <nobr><li>near the <b>circle of the sun</b></li></nobr>\
 <nobr><li><b>Khorinis portal temple</b>, in the right corner at Saturas</li></nobr>\
 <nobr><li><b>cave</b> near the field raiders</li></nobr>\
+<nobr>Changed to use a previously unused stone tablet model.</nobr>\
 "};
 DATA[DATA.length] = {id:"steintafel_12", pic:"screens/steintafeln/steintafel_leben3.jpg", name:"Stone tablet of Life Energy II", value:"100", effect:"+4 to life energy", note:"\
 <nobr><li>at the <b>orcs</b></li></nobr>\
@@ -94,6 +95,7 @@ DATA[DATA.length] = {id:"steintafel_12", pic:"screens/steintafeln/steintafel_leb
 <nobr><li>left <b>bank</b></li></nobr>\
 <nobr><li>near the <b>ghost light</b></li></nobr>\
 <nobr><li>left <b>room</b> after the light trap (or second trap) of the adanos temple</li></nobr>\
+<nobr>Changed to use a previously unused stone tablet model.</nobr>\
 "};
 DATA[DATA.length] = {id:"steintafel_13", pic:"screens/steintafeln/steintafel_leben3.jpg", name:"Stone tablet of Life Energy III", value:"100", effect:"+6 to life energy", note:"\
 <nobr><li><b>Jharkendar portal temple</b>, before the entrance/exit</li></nobr>\
@@ -103,6 +105,7 @@ DATA[DATA.length] = {id:"steintafel_13", pic:"screens/steintafeln/steintafel_leb
 <nobr><li><b>cave</b> *The test of Fire*</li></nobr>\
 <nobr><li>Dexter's <b>mine</b></li></nobr>\
 <nobr><li><b>Dexter's camp</b>, after the bridge on the left side</li></nobr>\
+<nobr>Changed to use a previously unused stone tablet model.</nobr>\
 "};
 
 DATA[DATA.length] = {section:"Stone tablets of One-Handed Combat"}
@@ -141,15 +144,18 @@ DATA[DATA.length] = {id:"steintafel_2", pic:"screens/steintafeln/steintafel_boge
 <nobr><li>in the <b>cave</b> at the <b>pyramid</b></li></nobr>\
 <nobr><li>in the <b>hoard</b> of the <b>rock dragon</b></li></nobr>\
 <nobr><li><b>near</b> the fire lizards</li></nobr>\
+<nobr>Changed to use same model as One-Handed stone tablets.</nobr>\
 "};
 DATA[DATA.length] = {id:"steintafel_3", pic:"screens/steintafeln/steintafel_bogen3.jpg", name:"Stone tablet of Archery II", value:"100", effect:"+2% to bow talent", note:"\
 <nobr><li><b>Bandits cave</b> near the <b>ice area</b></li></nobr>\
 <nobr><li><b>behind</b> the <b>2 trolls</b></li></nobr>\
 <nobr><li><b>Treasure island</b>, in the <b>cave</b></li></nobr>\
 <nobr><li><b>direction</b> to the bandits cave</li></nobr>\
+<nobr>Changed to use same model as One-Handed stone tablets.</nobr>\
 "};
 DATA[DATA.length] = {id:"steintafel_4", pic:"screens/steintafeln/steintafel_bogen3.jpg", name:"Stone tablet of Archery III", value:"100", effect:"+3% to bow talent", note:"\
 <nobr><li><b>House of the scholars</b>, <b>room</b> on the left side</li></nobr>\
+<nobr>Changed to use same model as One-Handed stone tablets.</nobr>\
 "};
 
 DATA[DATA.length] = {section:"Stone tablets of Crossbow"}
@@ -157,13 +163,16 @@ DATA[DATA.length] = {id:"steintafel_5", pic:"screens/steintafeln/steintafel_armb
 <nobr><li><b>entrance</b> of the portal temple, on the left side</li></nobr>\
 <nobr><li>in the <b>cave</b> at the lake</li></nobr>\
 <nobr><li>near the <b>orcs</b> at the small bridge</li></nobr>\
+<nobr>Changed to use same model as Two-Handed stone tablets.</nobr>\
 "};
 DATA[DATA.length] = {id:"steintafel_6", pic:"screens/steintafeln/steintafel_armbrust3.jpg", name:"Stone tablet of Crossbow II", value:"100", effect:"+2% to crossbow talent", note:"\
 <nobr><li><b>Lakeside</b></li></nobr>\
 <nobr><li><b>Cave of goblins</b></li></nobr>\
+<nobr>Changed to use same model as Two-Handed stone tablets.</nobr>\
 "};
 DATA[DATA.length] = {id:"steintafel_7", pic:"screens/steintafeln/steintafel_armbrust3.jpg", name:"Stone tablet of Crossbow III", value:"100", effect:"+3% to crossbow talent", note:"\
 <nobr><li><b>House of the scholars</b>, <b>room</b> on the right side</li></nobr>\
+<nobr>Changed to use same model as Two-Handed stone tablets.</nobr>\
 "};
 
 DATA[DATA.length] = {section:"Other stone tablets (Relics)"}
