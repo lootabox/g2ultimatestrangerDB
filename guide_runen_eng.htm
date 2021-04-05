@@ -16,6 +16,10 @@
 		OUT('<tr><td><ul>');
 		var zaehler = 1;
 
+		function getMana(it, isScroll=false) {
+			return it.pal ? it.mana : (isScroll ? Math.floor((it.mana+1)/2+1e-10) : it.mana);
+		}
+
 		for (i = 0; i < DATA.length; ++i) {
 			var it = DATA[i];
 
@@ -79,11 +83,15 @@
 				OUT('<table border=0 cellspacing=0 cellpadding=1>');
 				if (it.mana) {
 					OUT('<tr><td width=94 valign=top class=itemcell' + class_modifier + '><b>Mana: </b></td><td valign=top class=itemcell' + class_modifier + ' style="padding-left: 3px;">');
-					if (it.pic)				OUT('(rune) ' + it.mana);
-					if (it.maxlevel)		OUT(' per tier (max ' + it.mana*it.maxlevel + ')');
-					if (it.pic && it.pic2)	{ OUT(', ');	if (it.maxlevel) OUT('<br>') };
-					if (it.pic2)			OUT('(scroll) ' + Math.floor((it.mana+1)/2));
-					if (it.maxlevel)		OUT(' per tier (max ' + it.maxlevel*Math.floor((it.mana+1)/2) + ')');
+					if (it.pic) {
+						if (!it.pal) { OUT('(rune)'); } OUT('' + getMana(it)); if (it.pal) { OUT('%'); }
+					};
+					if (it.maxlevel)		OUT(' per tier (max ' + getMana(it)*it.maxlevel + ')');
+					if (!it.pal) {
+						if (it.pic && it.pic2)	{ OUT(', ');	if (it.maxlevel) OUT('<br>') };
+						if (it.pic2)			OUT('(scroll) ' + getMana(it, true));
+						if (it.maxlevel)		OUT(' per tier (max ' + getMana(it, true)*it.maxlevel + ')');
+					};
 					OUT('</td></tr>');
 				}
 				if (it.value || it.value2) {
